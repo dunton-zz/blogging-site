@@ -9,6 +9,7 @@ import PostsIndex from './components/posts_index';
 import PostsNew from './components/posts_new';
 
 import promise from 'redux-promise';
+import './index.css';
 
 const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
 
