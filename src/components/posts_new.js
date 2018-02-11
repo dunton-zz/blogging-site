@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { createPost } from '../actions';
 
 class PostsNew extends Component {
 
@@ -28,8 +30,12 @@ class PostsNew extends Component {
 	}
 
 	onSubmit(values) {
-		// this === component
-		console.log(values);
+		
+		// call action creator
+		this.props.createPost(values, () => {
+			// sends back to root of application
+			this.props.history.push('/');
+		});
 	}
 
 	render() {
@@ -88,7 +94,6 @@ export default reduxForm({
 	// string must be unique
 	// helps communicate with reducer
 	form: 'PostsNewForm'
-})(PostsNew);
-
-
-
+})(
+	connect(null, { createPost })(PostsNew)
+);
