@@ -17,8 +17,32 @@ class PostsNew extends Component {
 				<input
 					className="form-control"
 					type="text"
+					placeholder={field.label}
 					// contains a bunch of diff event handlers and props
 					// ... communicates all props from object to input tag
+					{...field.input}
+				/>
+				<div className="text-help">
+					{field.meta.touched ? field.meta.error : ''}
+				</div>
+				 
+			</div>
+		)
+	}
+
+	// uses textarea instead of input field to allow for longer, better posts
+	renderTextField(field) {
+		const { meta: { touched, error } } = field;
+		const className = `form-group ${touched && error ? 'has-danger' : '' }`;
+
+		return (
+			<div className={className}>
+				<label>{field.label}</label>
+				<textarea 
+					className="form-control"
+					id="contentField" 
+					placeholder={field.label} 
+					type="text"
 					{...field.input}
 				/>
 				<div className="text-help">
@@ -56,7 +80,7 @@ class PostsNew extends Component {
 				<Field
 					name="content"
 					label="Post Content"
-					component={this.renderField}
+					component={this.renderTextField}
 				/>	
 				<button type="submit" className="btn btn-primary">Submit</button>
 				<Link to="/" className="btn btn-danger">Cancel</Link>
