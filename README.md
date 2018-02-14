@@ -1,6 +1,8 @@
-## THIS IS A WORK IN PROGRESS
+## React Blogging Site
 
-#### I am learning to use React Router better by building a blogging engine, because it will help me get used to building CRUD apps in REACT/REDUX.
+Using React, Redux and React Router to set up a functional blog site.
 
-#### Please review other projects for more of a finished product. Thanks!
+This has minimal styling but lots of functionality!
+
+I played around with this to learn how to interact with APIs using Axios and improve my React/Redux knowledge
 
